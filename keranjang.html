@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product Card</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #222222;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    .back-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      z-index: 10;
+    }
+
+    .back-icon:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .back-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    .card {
+      position: relative;
+      background: #fff;
+      width: 320px;
+      padding: 1.5rem 2rem 2.5rem 2rem;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
+      border-radius: 6px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 28px 28px 0;
+      border-color: transparent white transparent transparent;
+      filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.07));
+    }
+
+    .product-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .product-image {
+      flex-shrink: 0;
+      width: 85px;
+      height: 60px;
+      margin-right: 0.75rem;
+    }
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .product-text {
+      flex-grow: 1;
+    }
+
+    .product-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 0 0 6px 0;
+      color: #222;
+    }
+
+    .product-subtitle {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #888;
+      margin: 0 0 8px 0;
+    }
+
+    .product-price {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #739849;
+      margin: 0;
+    }
+
+    .btn-checkout {
+      background: #6c6c6c;
+      color: white;
+      display: block;
+      width: 140px;
+      margin: 0 auto;
+      padding: 0.5rem 0;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      border-radius: 14px;
+      border: none;
+      box-shadow: 0 3px 4px rgb(0 0 0 / 0.4);
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-checkout:hover {
+      background-color: #5c5c5c;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back icon ala aplikasi -->
+  <a href="partner-outdoor.html" class="back-icon" aria-label="Kembali ke beranda">
+    <svg viewBox="0 0 24 24">
+      <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    </svg>
+  </a>
+
+  <section class="card" aria-label="Product card Tenda 2p Double Layer">
+    <div class="product-info">
+      <div class="product-image" aria-hidden="true">
+        <img src="2. 2p2layer.png" alt="Yellow and gray Tenda 2p Double Layer camping tent" onerror="this.style.display='none'" />
+      </div>
+      <div class="product-text">
+        <h2 class="product-title">Tenda 2p Double Layer</h2>
+        <p class="product-subtitle">Rp25.000 x 9 hari</p>
+        <p class="product-price">Rp225.000</p>
+      </div>
+    </div>
+    <button class="btn-checkout" type="button" aria-label="Checkout Tenda" onclick="window.location.href='metode pembayaran.html'">CHECK OUT</button>
+  </section>
+
+</body>
+</html>

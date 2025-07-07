@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Partner Outdoor Checkout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Inter', sans-serif;
+    }
+    .overlay-bg {
+      background-color: rgba(255 255 255 / 0.92);
+    }
+    a.underline-hover:hover {
+      text-decoration: underline;
+      color: #2563eb;
+    }
+    button:disabled {
+      background-color: #9ca3af;
+      cursor: not-allowed;
+    }
+    .selection-btn {
+      @apply relative border border-gray-300 rounded px-3 py-2 text-sm cursor-pointer select-none transition-colors duration-150;
+    }
+    .selection-btn[data-selected="true"] {
+      background-color: #f0fdf4;
+      border-color: #4ade80;
+      color: #15803d;
+      font-weight: 600;
+    }
+    .corner-indicator {
+      display: none;
+    }
+    .selection-btn[data-selected="true"] .corner-indicator {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-white w-full shadow-md flex items-center justify-between px-6 py-4 select-none">
+    <div class="flex items-center space-x-2">
+      <span class="font-bold text-xl tracking-wide">PARTNER</span>
+      <div class="border-l-2 h-6 border-black"></div>
+      <span class="font-bold text-xl tracking-wide">OUTDOOR</span>
+    </div>
+    <div class="text-sm font-semibold">Checkout</div>
+  </header>
+
+  <main class="max-w-3xl mx-auto mt-10 mb-14 bg-white rounded-lg shadow-lg p-6 overlay-bg">
+    <!-- Product summary -->
+    <section class="flex space-x-4 bg-white p-5 rounded-lg shadow-md">
+      <img src="3. tenda 4p.jpg" alt="Tenda 2p Double Layer" class="w-24 h-24 object-cover rounded-md flex-shrink-0" />
+      <div class="flex-grow flex flex-col justify-center">
+        <h2 class="font-semibold text-lg mb-1">Tenda 2p Double Layer</h2>
+        <div class="flex text-gray-600 text-xs">
+          <div class="flex-1 border-r border-gray-300 pr-4">
+            <div class="font-semibold text-xs">Harga Sewa Perhari</div>
+            <div>Rp25.000</div>
+          </div>
+          <div class="flex-1 border-r border-gray-300 px-4 text-center">
+            <div class="font-semibold text-xs">Jumlah hari</div>
+            <div>9 hari</div>
+          </div>
+          <div class="flex-1 pl-4 text-right">
+            <div class="font-semibold text-xs">Subtotal</div>
+            <div>Rp225.000</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notice about terms -->
+    <div class="bg-gray-100 text-xs mt-4 rounded-md p-2 text-center">
+      Sebelum melakukan pembayaran, harap untuk membaca <a href="#" class="underline text-blue-700 underline-hover font-semibold">syarat &amp; ketentuan</a> terlebih dahulu.
+    </div>
+
+    <!-- Shipping address -->
+    <section class="border border-gray-300 rounded-lg mt-5 bg-white p-5">
+      <div class="flex items-center text-gray-700 font-semibold text-sm mb-3 space-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.656 0 3-1.344 3-3S13.656 5 12 5s-3 1.344-3 3 1.344 3 3 3z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 11v10m0 0H7m5 0h5" />
+        </svg>
+        <span>Alamat Pengiriman</span>
+      </div>
+      <div class="text-xs text-gray-800">
+        <div><span class="font-semibold">Bambang (+62) 8111169696969</span></div>
+        <div class="mt-1 text-gray-700">
+          Jalan Persatuan II No. 33, RT.7/RW.26, Onggomertan, Depok <span class="line-through">x</span> (Pager putih), KAB. SLEMAN - DEPOK, DI YOGYAKARTA, ID 55282
+          <button id="ubahAlamat" class="text-blue-600 font-semibold ml-2 text-xs hover:underline">ubah</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Payment selection -->
+    <section class="py-5 mt-5 border border-gray-300 rounded-lg bg-white">
+      <div class="mb-3 px-5">
+        <label class="block font-semibold text-sm mb-1" for="pembayaran">Pembayaran</label>
+        <div class="flex gap-3">
+          <button type="button" class="selection-btn" data-value="full">Pembayaran Full</button>
+          <button type="button" class="selection-btn" data-value="dp50" data-selected="true">Dp 50%</button>
+        </div>
+      </div>
+
+      <div class="mb-3 px-5">
+        <label class="block font-semibold text-sm mb-1">Metode Pembayaran</label>
+        <div class="grid grid-cols-3 gap-3 max-w-sm">
+          <button type="button" class="selection-btn" data-value="cash" data-selected="true">
+            Cash ditempat
+            <span class="corner-indicator absolute bottom-0 right-0 w-0 h-0 border-b-[10px] border-l-[10px] border-green-700 border-l-transparent rounded-br-sm"></span>
+          </button>
+          <button type="button" class="selection-btn" data-value="qris">
+            QRIS
+            <span class="corner-indicator absolute bottom-0 right-0 w-0 h-0 border-b-[10px] border-l-[10px] border-green-700 border-l-transparent rounded-br-sm"></span>
+          </button>
+          <button type="button" class="selection-btn" data-value="gopay">
+            GOPAY
+            <span class="corner-indicator absolute bottom-0 right-0 w-0 h-0 border-b-[10px] border-l-[10px] border-green-700 border-l-transparent rounded-br-sm"></span>
+          </button>
+          <button type="button" class="selection-btn" data-value="shopeepay">
+            SHOPEEPAY
+            <span class="corner-indicator absolute bottom-0 right-0 w-0 h-0 border-b-[10px] border-l-[10px] border-green-700 border-l-transparent rounded-br-sm"></span>
+          </button>
+          <button type="button" class="selection-btn" data-value="bni">
+            TF BNI
+            <span class="corner-indicator absolute bottom-0 right-0 w-0 h-0 border-b-[10px] border-l-[10px] border-green-700 border-l-transparent rounded-br-sm"></span>
+          </button>
+          <button type="button" class="selection-btn" data-value="bca">
+            TF BCA
+            <span class="corner-indicator absolute bottom-0 right-0 w-0 h-0 border-b-[10px] border-l-[10px] border-green-700 border-l-transparent rounded-br-sm"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="mt-5 bg-white border border-gray-300 rounded-lg p-5 max-w-md ml-auto">
+      <div class="flex justify-between mb-2 text-gray-700 text-sm">
+        <span>Subtotal Produk (Dp 50%)</span>
+        <span id="subtotal">Rp112.500</span>
+      </div>
+      <div class="flex justify-between mb-2 text-gray-700 text-sm">
+        <span>Biaya Layanan</span>
+        <span id="biayaLayanan">Rp5.000</span>
+      </div>
+      <div class="flex justify-between text-black font-semibold text-base border-t border-gray-300 pt-2">
+        <span>Total Pembayaran</span>
+        <span id="totalBayar">Rp117.500</span>
+      </div>
+
+      <div class="mt-4 flex items-center space-x-2 text-xs text-gray-700 select-none">
+        <input type="checkbox" id="checkedS&K" />
+        <label for="checkedS&K" class="flex items-center cursor-pointer">Saya sudah membaca <a href="#" class="text-blue-700 underline ml-1">S&amp;K</a></label>
+      </div>
+      <button id="rentNowBtn" disabled class="mt-3 w-full py-2 rounded-full bg-gray-400 text-white font-semibold transition-colors duration-200 disabled:cursor-not-allowed">RENT NOW</button>
+    </section>
+  </main>
+
+  <script>
+    const pembayaranBtns = document.querySelectorAll('[data-value="full"], [data-value="dp50"]');
+    const metodeBtns = document.querySelectorAll('[data-value="cash"], [data-value="qris"], [data-value="gopay"], [data-value="shopeepay"], [data-value="bni"], [data-value="bca"]');
+    const subtotalEl = document.getElementById('subtotal');
+    const biayaLayananEl = document.getElementById('biayaLayanan');
+    const totalBayarEl = document.getElementById('totalBayar');
+    const checkboxSK = document.getElementById('checkedS&K');
+    const rentNowBtn = document.getElementById('rentNowBtn');
+
+    const hargaFull = 225000;
+    const hargaDp50 = 112500;
+    const biayaLayanan = 5000;
+
+    let pembayaranSelected = 'dp50';
+    let metodeSelected = 'cash';
+
+    function formatRupiah(num) {
+      return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0
+      }).format(num);
+    }
+
+    function updateSummary() {
+      let subtotal = pembayaranSelected === 'full' ? hargaFull : hargaDp50;
+      subtotalEl.textContent = formatRupiah(subtotal);
+      biayaLayananEl.textContent = formatRupiah(biayaLayanan);
+      totalBayarEl.textContent = formatRupiah(subtotal + biayaLayanan);
+    }
+
+    function toggleSelection(buttons, selectedValue) {
+      buttons.forEach(btn => {
+        btn.dataset.selected = (btn.dataset.value === selectedValue).toString();
+      });
+    }
+
+    pembayaranBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        pembayaranSelected = btn.dataset.value;
+        toggleSelection(pembayaranBtns, pembayaranSelected);
+        updateSummary();
+      });
+    });
+
+    metodeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        metodeSelected = btn.dataset.value;
+        toggleSelection(metodeBtns, metodeSelected);
+      });
+    });
+
+    checkboxSK.addEventListener('change', () => {
+      rentNowBtn.disabled = !checkboxSK.checked;
+      rentNowBtn.classList.toggle('bg-green-500', checkboxSK.checked);
+      rentNowBtn.classList.toggle('bg-gray-400', !checkboxSK.checked);
+    });
+
+    document.getElementById('ubahAlamat').addEventListener('click', () => {
+      alert('Ubah alamat functionality belum tersedia.');
+    });
+
+    updateSummary();
+
+    updateSummary();
+
+rentNowBtn.addEventListener('click', () => {
+  if (!rentNowBtn.disabled) {
+    window.location.href = "pembayaran berhasil.html"; // Halaman tujuan setelah checkout
+  }
+});
+
+  </script>
+</body>
+</html>

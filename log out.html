@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Konfirmasi Logout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .dialog-container {
+      max-width: 300px;
+      margin: 3rem auto;
+      border-radius: 1rem;
+      box-shadow: 0 8px 12px rgb(0 0 0 / 0.1);
+    }
+
+    button:focus-visible {
+      outline-offset: 4px;
+      outline: 3px solid #94a97d;
+    }
+
+    /* Tombol "TIDAK" dengan warna hijau custom */
+    .btn-tidak {
+      background-color: #c1d1ac;
+    }
+    .btn-tidak:hover {
+      background-color: #b1c59b;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 flex justify-center items-start min-h-screen p-4">
+  <section
+    class="dialog-container bg-white rounded-lg border border-gray-300 px-6 py-5 font-sans text-center"
+    role="dialog"
+    aria-labelledby="dialogTitle"
+    aria-describedby="dialogDesc"
+  >
+    <h2 id="dialogTitle" class="text-lg font-semibold mb-6 text-gray-900">Yakin ingin Log out?</h2>
+    <div class="flex justify-center space-x-4">
+      <button
+        id="btn-yes"
+        type="button"
+        class="w-20 py-2 font-semibold text-black border border-black rounded-full hover:bg-black hover:text-white transition"
+      >
+        YA
+      </button>
+      <button
+        id="btn-no"
+        type="button"
+        class="w-24 py-2 font-semibold text-white btn-tidak rounded-full shadow-md transition"
+      >
+        TIDAK
+      </button>
+    </div>
+  </section>
+
+  <script>
+    const btnYes = document.getElementById('btn-yes');
+    const btnNo = document.getElementById('btn-no');
+
+    btnYes.addEventListener('click', () => {
+      alert('Anda memilih YA: Log out dilakukan.');
+    });
+
+    btnNo.addEventListener('click', () => {
+      alert('Anda memilih TIDAK: Log out dibatalkan.');
+    });
+  </script>
+</body>
+</html>

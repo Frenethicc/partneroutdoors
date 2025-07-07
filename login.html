@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="form-box">
+      <h2>Login</h2>
+      <form action="login.php" method="POST">
+        <input type="email" name="email" placeholder="Email" required>
+
+        <div class="password-wrapper">
+          <input type="password" name="password" placeholder="Password" required>
+          <span class="toggle-password">&#128065;</span>
+        </div>
+
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" name="remember"> Remember me
+          </label>
+          <a href="#" class="forgot">Forgot Password?</a>
+        </div>
+
+        <button type="submit">Login</button>
+      </form>
+
+      <p class="signup">Don’t have an account? <a href="sign up.html">Get Started</a></p>
+    </div>
+    <div class="image-box">
+      <img src="daun.jpg" alt="Login Image">
+    </div>
+  </div>
+
+  <!-- Toggle password -->
+  <script>
+    const toggle = document.querySelector('.toggle-password');
+    const password = document.querySelector('input[name="password"]');
+    toggle.addEventListener('click', function () {
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+    });
+  </script>
+</body>
+</html>

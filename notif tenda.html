@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout Success - Partner Outdoor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .btn-shadow {
+      box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    }
+    .logo-partner {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.06em;
+      line-height: 1.2;
+    }
+    .logo-partner span {
+      display: block;
+      letter-spacing: normal;
+    }
+    .logo-partner .triangle {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-top: 0.3em;
+      margin-left: 0.1em;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 9px solid black;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="flex items-center justify-between border-b border-gray-300 px-6 py-4 select-none relative">
+    <a href="partner-outdoor.html" class="absolute left-4 top-4">
+      <svg class="w-6 h-6 text-gray-700 hover:text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+    </a>
+    <div class="flex items-center space-x-4 mx-auto">
+      <div class="logo-partner text-black">
+        <span class="font-extrabold text-xl tracking-widest leading-none">PARTNER</span>
+        <span class="font-extrabold text-xl tracking-widest leading-none">OUTDOOR</span>
+      </div>
+      <div class="border-l border-gray-400 h-6"></div>
+      <span class="text-black font-medium text-base">Checkout</span>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="flex-grow flex flex-col items-center justify-center px-6 text-center max-w-xl mx-auto">
+    <h1 class="text-3xl font-semibold text-black mb-9">Pembayaran Berhasil!</h1>
+
+    <!-- Gambar ilustrasi -->
+    <img src="order success.png" width="176" height="176" alt="Sukses" class="mb-6" />
+
+    <p class="text-sm text-gray-700 mt-4 max-w-md">
+      Pembayaran telah dikonfirmasi oleh admin,<br />
+      Pesananmu akan segera dikirimkan oleh driver kami. Driver kami akan<br />
+      mengabari kamu via WhatsApp.
+    </p>
+
+    <a href="kategori.html" class="mt-9 inline-block">
+      <button
+        type="button"
+        class="btn-shadow px-6 py-2 bg-gray-600 text-gray-200 rounded-full font-mono tracking-widest text-sm transition duration-200 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-1 active:bg-gray-800"
+      >
+        Lanjut Sewa
+      </button>
+    </a>
+  </main>
+</body>
+</html>
